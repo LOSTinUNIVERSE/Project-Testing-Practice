@@ -1,4 +1,4 @@
-import { capitalize, reverse, calculator } from './index'
+import { capitalize, reverse, calculator, caesarCipher } from './index'
 
 // console.log(capitalize);
 test('1st letter should be capital', () => {
@@ -19,4 +19,7 @@ test('multiply a to b', () => {
 })
 test('divide a by b', () => {
     expect(calculator.divide(4, 4)).toBe(1)
+})
+test('show next letter', () => {
+    expect(caesarCipher('aa')).toBe('bb')
 })

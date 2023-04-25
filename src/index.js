@@ -26,19 +26,18 @@ export const calculator = {
         return a / b
     }
 }
-function caesarCipher(string) {
+export function caesarCipher(string) {
+    string = string.toLowerCase()
     string = Array.from(string)
-    // string = string.split('')
-    // at this point we deleted type module from package json so webpack works fine 
-    console.log(string);
+    //! at this point we deleted type module from package json so webpack works fine 
+    let indexLike = 0
     string.forEach(item => {
-        const index = string.indexOf(item)
-        console.log(index);
-        // const numbers = item.charCodeAt() - 64;
-        // item = String.fromCharCode(65 + numbers)
-        // string[index] = item
+        const numbers = item.charCodeAt() - 64;
+        item = String.fromCharCode(65 + numbers)
+        if (item == '{') item = 'a'
+        if (item != '!') string[indexLike] = item
+        indexLike++
     });
-    // return string
+    string = string.join('')
+    return string
 }
-const result = caesarCipher('bb cc dd')
-// console.log(result);
