@@ -1,4 +1,4 @@
-import { capitalize, reverse, calculator, caesarCipher } from './index'
+import { capitalize, reverse, calculator, caesarCipher, analyzeArray } from './index'
 
 // console.log(capitalize);
 test('1st letter should be capital', () => {
@@ -20,6 +20,31 @@ test('multiply a to b', () => {
 test('divide a by b', () => {
     expect(calculator.divide(4, 4)).toBe(1)
 })
-test('show next letter', () => {
-    expect(caesarCipher('aa')).toBe('bb')
-})
+function checkCaesar() {
+    test('show next letter', () => {
+        expect(caesarCipher('aa')).toBe('bb')
+    })
+    test('if z then a', () => {
+        expect(caesarCipher('zz')).toBe('aa')
+    })
+    test('keep case', () => {
+        expect(caesarCipher('ABab')).toBe('BCbc')
+    })
+    test('check punctuation', () => {
+        expect(caesarCipher('AB.ab')).toBe('BC/bc')
+    })
+}
+checkCaesar()
+function checkAnalyzeArray() {
+    const array = [1, 8, 3, 4, 2, 6]
+    test('return average', () => {
+        expect(analyzeArray.average(array)).toBe(4)
+    })
+    test('return min', () => {
+        expect(analyzeArray.min(array)).toBe(1)
+    })
+    test('return max', () => {
+        expect(analyzeArray.max(array)).toBe(8)
+    })
+}
+checkAnalyzeArray()

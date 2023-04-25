@@ -1,3 +1,5 @@
+import { initial, sum } from 'prelude-ls'
+
 export function capitalize(string) {
     let firstLetter = string.charAt(0)
     firstLetter = firstLetter.toUpperCase()
@@ -27,17 +29,36 @@ export const calculator = {
     }
 }
 export function caesarCipher(string) {
-    string = string.toLowerCase()
     string = Array.from(string)
-    //! at this point we deleted type module from package json so webpack works fine 
     let indexLike = 0
     string.forEach(item => {
         const numbers = item.charCodeAt() - 64;
         item = String.fromCharCode(65 + numbers)
         if (item == '{') item = 'a'
+        if (item == '[') item = 'A'
         if (item != '!') string[indexLike] = item
         indexLike++
     });
     string = string.join('')
     return string
+}
+caesarCipher('aa.BB')
+
+
+export const analyzeArray = {
+    average(array) {
+        const initialValue = 0
+        const sumOfNumbers = array.reduce(
+            (accumulator, currentValue) => accumulator + currentValue,
+            initialValue)
+        return sumOfNumbers / array.length
+    },
+    min(array) {
+        const minNumber = Math.min(...array);
+        return minNumber
+    },
+    max(array) {
+        const maxNumber = Math.max(...array);
+        return maxNumber
+    }
 }
