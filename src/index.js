@@ -45,20 +45,20 @@ export function caesarCipher(string) {
 caesarCipher('aa.BB')
 
 
-export const analyzeArray = {
-    average(array) {
-        const initialValue = 0
-        const sumOfNumbers = array.reduce(
-            (accumulator, currentValue) => accumulator + currentValue,
-            initialValue)
-        return sumOfNumbers / array.length
-    },
-    min(array) {
-        const minNumber = Math.min(...array);
-        return minNumber
-    },
-    max(array) {
-        const maxNumber = Math.max(...array);
-        return maxNumber
+export function analyzeArray(array) {
+    const initialValue = 0
+    const sumOfNumbers = array.reduce(
+        (accumulator, currentValue) => accumulator + currentValue,
+        initialValue)
+    const average = sumOfNumbers / array.length
+    const minNumber = Math.min(...array);
+    const maxNumber = Math.max(...array);
+    const { length } = array
+    const object = {
+        'average': average,
+        'min': minNumber,
+        'max': maxNumber,
+        'length': length
     }
+    return object
 }

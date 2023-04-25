@@ -35,16 +35,11 @@ function checkCaesar() {
     })
 }
 checkCaesar()
-function checkAnalyzeArray() {
-    const array = [1, 8, 3, 4, 2, 6]
-    test('return average', () => {
-        expect(analyzeArray.average(array)).toBe(4)
+test('return object', () => {
+    expect(analyzeArray([1, 8, 3, 4, 2, 6])).toMatchObject({
+        'average': 4,
+        'min': 1,
+        'max': 8,
+        'length': 6,
     })
-    test('return min', () => {
-        expect(analyzeArray.min(array)).toBe(1)
-    })
-    test('return max', () => {
-        expect(analyzeArray.max(array)).toBe(8)
-    })
-}
-checkAnalyzeArray()
+})
